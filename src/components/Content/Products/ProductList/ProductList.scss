@@ -1,0 +1,14 @@
+.productList__wrapper{
+    margin-top: 100px;
+    width: 80%;
+    transition: all 1s ease-in-out;
+}
+.productList__container{
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 100%;
+    // width: 1000px;
+}
+.product__item__detail{
+    max-width: 25% !important;
+}

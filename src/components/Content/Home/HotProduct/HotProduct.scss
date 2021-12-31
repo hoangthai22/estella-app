@@ -1,10 +1,22 @@
-$primary-color: #db7093;
+@import "../../../../App.scss";
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap");
 
 .hot__product__wrapper {
   // margin-bottom: 300px;
   max-width: 1020px;
   margin: 100px auto;
+}
+.hot__product__title {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+  &__text {
+    font-size: 40px;
+    color: $primary-color;
+    font-weight: 700;
+    font-family: "Quicksand", sans-serif !important;
+    cursor: pointer;
+  }
 }
 .slick-arrow {
   border: 1px solid $primary-color !important;
@@ -27,33 +39,35 @@ $primary-color: #db7093;
   text-align: center !important;
 }
 .slick-prev:before {
-  content: "＜" !important;
+  content: "❮" !important;
   font-weight: 400 !important;
 }
 .slick-next:before {
-  content: "＞" !important;
+  content: "❯" !important;
 }
 .hot__product__item {
   position: relative;
   width: 100%;
   height: 100%;
-
+  transition: all 0.2s ease-in-out;
   &__img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
+    max-height: 185px;
 
     cursor: pointer;
     border-bottom: 2px solid $primary-color;
   }
-
+  &:hover {
+    transform: scale(1.03);
+  }
   &__wrapper {
     overflow: hidden;
     text-align: center;
     border: 2px solid $primary-color;
     border-radius: 10px;
-    margin-left: 18px;
-    margin-right: 18px;
+    margin: 18px;
     // height: 300px;
   }
   &__text {
@@ -74,7 +88,7 @@ $primary-color: #db7093;
     cursor: pointer;
   }
   &__text-price__sale {
-    font-size: 19px;
+    font-size: 17px;
     line-height: 25px;
     color: #6b6868;
     margin-right: 10px;
@@ -85,7 +99,7 @@ $primary-color: #db7093;
     display: block;
     font-style: normal;
     font-weight: 600;
-    font-size: 19px;
+    font-size: 17px;
     line-height: 25px;
     color: #000;
     font-family: "Quicksand", sans-serif;
@@ -101,7 +115,7 @@ $primary-color: #db7093;
   &__sale__icon {
     position: absolute;
     right: 25px;
-    top: 8px;
+    top: 25px;
     background-color: $primary-color;
     padding: 2px 5px;
     border-radius: 5px;

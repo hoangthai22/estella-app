@@ -1,16 +1,24 @@
-$primary-color: #db7093;
-
-.header{
-    max-width: 1125px;
-    max-height: 150px;
-    height: 150px;
-    margin: auto;
-    
+.header {
+  max-width: 1125px;
+  max-height: 150px;
+  height: 150px;
+  margin: auto;
 }
-.content{
-    max-width: 1125px;
-    // max-height: 150px;
-    // height: 150px;
-    margin: auto;
-    
+.content,
+.category__detail__content,
+.product__detail__content {
+  max-width: 1125px;
+  margin: auto;
+ 
+}
+.category__detail__container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 100px;
+}
+
+.product__detail__container{
+  display: flex;
+  margin-top: 100px;
+  gap: 30px;
 }

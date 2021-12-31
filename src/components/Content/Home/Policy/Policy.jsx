@@ -1,7 +1,7 @@
 import React from "react";
-import { ReactComponent as IconShip } from "./../../../assests/img/iconPl1.svg";
-import { ReactComponent as IconArrow } from "./../../../assests/img/iconPl2.svg";
-import { ReactComponent as IconCard } from "./../../../assests/img/iconPl3.svg";
+import { ReactComponent as IconShip } from "../../../../assests/img/iconPl1.svg";
+import { ReactComponent as IconArrow } from "../../../../assests/img/iconPl2.svg";
+import { ReactComponent as IconCard } from "../../../../assests/img/iconPl3.svg";
 import "./Policy.scss";
 
 const Policy = () => {
