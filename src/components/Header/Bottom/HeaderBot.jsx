@@ -1,6 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { productList } from "../../../constants/DataMock";
+import { AppContext } from "../../../contexts/AppProvider";
 import "./HeaderBot.scss";
+
 const HeaderBot = (props) => {
+  const { categoryList, setListProductsCurrent } = useContext(AppContext);
+  const history = useNavigate();
+
+  const handleSubmitCategory = (id, slug, categoryName) => {
+    history("/" + slug, { state: { id: id, categoryName: categoryName } });
+    let productsCurrent = productList.filter((item) => item.category.id === id);
+    setListProductsCurrent(productsCurrent);
+  };
+
   return (
     <div className="header__bot__wrapper">
       <div className="header__bot__container">
@@ -8,13 +21,13 @@ const HeaderBot = (props) => {
           <li className="header__bot__item">
             <span className="header__bot__item__text category__menu">DANH MỤC SẢN PHẨM</span>
             <ul className="sub__menu__list">
-                <li className="sub__menu__category">Category 1</li>
-                <li className="sub__menu__category">Category 2</li>
-                <li className="sub__menu__category">Category 3</li>
-                <li className="sub__menu__category">Category 4</li>
-                <li className="sub__menu__category">Category 4</li>
-                <li className="sub__menu__category">Category 4</li>
-                <li className="sub__menu__category">Category 4</li>
+              {categoryList.map((item) => {
+                return (
+                  <li key={item.id} className="sub__menu__category" onClick={() => handleSubmitCategory(item.id, item.slug, item.categoryName)}>
+                    {item.categoryName}
+                  </li>
+                );
+              })}
             </ul>
           </li>
           <li className="header__bot__item">
