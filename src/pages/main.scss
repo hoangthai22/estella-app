@@ -6,10 +6,10 @@
 }
 .content,
 .category__detail__content,
-.product__detail__content {
+.product__detail__content,
+.cart__content {
   max-width: 1125px;
   margin: auto;
- 
 }
 .category__detail__container {
   display: flex;
@@ -17,7 +17,7 @@
   margin-bottom: 100px;
 }
 
-.product__detail__container{
+.product__detail__container {
   display: flex;
   margin-top: 100px;
   gap: 30px;

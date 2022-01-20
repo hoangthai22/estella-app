@@ -76,35 +76,25 @@ const ProductDetail = (props) => {
     speed: 300,
     lazyLoad: true,
   };
+  useEffect(() => {
+    handleGotoTop();
+  }, []);
+  const handleGotoTop = () => {
+    window.scrollTo({ top: 0, left: 0 });
+  };
 
   useEffect(() => {
     setNav1(slider1.current);
     setNav2(slider2.current);
     let index = 0;
-    // let imgFirst = "";
-    let slugProduct = location?.pathname?.slice(1).split("/")[1];
-    productList.map((item) => {
-      if (item.slug === slugProduct) {
-        // imgFirst = item.size[0].imgTitle;
-        item.listImgDetail.map((img, ind) => {
-          if (img === imgUrl) {
-            index = ind + 1;
-          }
-        });
-        return true;
+    console.log({ listImgDetail });
+    listImgDetail?.map((img, ind) => {
+      if (img === imgUrl) {
+        index = ind;
       }
     });
-
-    // console.log(sliderRef.current.props.children);
-    // listImgDetail?.map((item, ind) => {
-    //   if (item === (imgUrl ? imgUrl : imgFirst)) {
-    //     console.log("ok");
-    //     index = ind;
-    //   }
-    // });
-    console.log({ index });
-    sliderRef.current.slickGoTo(index);
-  }, [imgUrl, size, location?.pathname, listImgDetail]);
+    if (index > 0) sliderRef.current.slickGoTo(index);
+  }, [imgUrl, listImgDetail, location?.pathname]);
 
   return (
     <div className="product__detail__wrapper">
