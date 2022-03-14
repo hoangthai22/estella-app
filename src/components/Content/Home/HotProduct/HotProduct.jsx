@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
-import { caculatorSale } from "../../../../constants/Caculator";
 import { productList } from "../../../../constants/DataMock";
 import ProductItem from "../../Products/ProductItem/ProductItem";
-
 import "./HotProduct.scss";
+
 
 const HotProduct = () => {
   const [products, setProducts] = useState([]);

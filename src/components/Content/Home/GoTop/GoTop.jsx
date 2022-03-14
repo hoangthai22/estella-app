@@ -4,10 +4,11 @@ import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import "./GoTop.scss";
 import { useEffect } from "react/cjs/react.development";
 
+export const handleGotoTop = () => {
+  window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+};
+
 const GoTop = () => {
-  const handleGotoTop = () => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-  };
   const [isGoToTop, SetIsGoToTop] = useState(false);
 
   useEffect(() => {

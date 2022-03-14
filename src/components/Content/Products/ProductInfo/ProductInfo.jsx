@@ -1,14 +1,17 @@
 import { faCaretLeft, faCaretRight, faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useEffect } from "react/cjs/react.development";
 import { caculatorSale } from "../../../../constants/Caculator";
+import { LOCALSTORAGE_NAME } from "../../../../constants/Pages";
+import { AppContext } from "../../../../contexts/AppProvider";
 import "./ProductInfo.scss";
 
 const ProductInfo = (props) => {
-  const { productName, price, size, totalSize, sale } = props.data;
+  const { Cart, setCart } = useContext(AppContext);
+  const { productName, price, size, totalSize, sale, _id, productImg } = props.data;
   const [indexActive, setIndexActive] = useState(0);
-  const [colorActive, setColorActive] = useState(0);
+  const [colorActive, setColorActive] = useState("");
   const [countQuantity, setcountQuantity] = useState(1);
   const [sizeListCurrent, setSizeListCurrent] = useState([]);
   const [isValidForm, setisValidForm] = useState(true);
@@ -92,22 +95,63 @@ const ProductInfo = (props) => {
     if (indexActive <= 0) {
       isValid = false;
       setisValidForm(isValid);
+      return;
     }
     if (colorActive <= 0) {
       isValid = false;
       setisValidForm(isValid);
+      return;
     }
     if (isValid) {
       setisValidForm(isValid);
-      
+      AddCart();
     }
   };
-  const handleChangeQuantity = () => {
-    if (countQuantity >= getCountQuantity()) {
-      setcountQuantity(parseInt(getCountQuantity()));
-      return;
+
+  const AddCart = () => {
+    let isQuantity = false;
+    if (!JSON.parse(localStorage.getItem(LOCALSTORAGE_NAME))) {
+      localStorage.setItem(LOCALSTORAGE_NAME, JSON.stringify([]));
     }
-    countQuantity > 0 && setcountQuantity(countQuantity + 1);
+    const CartList = JSON.parse(localStorage.getItem(LOCALSTORAGE_NAME));
+    let newCarts = CartList?.map((item) => {
+      if (item.id === _id && item.size === indexActive && item.color === colorActive) {
+        item.quantity = item.quantity + countQuantity;
+        if (item.quantity > getCountQuantity()) {
+          item.quantity = getCountQuantity();
+        }
+        isQuantity = true;
+      }
+      return item;
+    });
+    if (!isQuantity) {
+      const carts = [
+        ...CartList,
+        {
+          id: _id,
+          quantity: countQuantity,
+          color: colorActive,
+          size: indexActive,
+          name: productName,
+          img: productImg,
+        },
+      ];
+      setCart(carts);
+      localStorage.setItem(LOCALSTORAGE_NAME, JSON.stringify([...carts]));
+    } else {
+      setCart([...newCarts]);
+      localStorage.setItem(LOCALSTORAGE_NAME, JSON.stringify([...newCarts]));
+    }
+  };
+
+  const handleChangeQuantity = () => {
+    if (colorActive !== "" && indexActive > 0) {
+      if (countQuantity >= getCountQuantity()) {
+        setcountQuantity(parseInt(getCountQuantity()));
+        return;
+      }
+      countQuantity > 0 && setcountQuantity(countQuantity + 1);
+    }
   };
 
   return (
@@ -165,16 +209,23 @@ const ProductInfo = (props) => {
           <div>
             <span className="product__info__size__title">Số lượng</span>
           </div>
-          <div style={{ display: "flex", alignItems: "center", gap: 20, marginTop: 10 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 20, marginTop: 10, opacity: colorActive !== "" && indexActive > 0 ? 1 : 0.5 }}>
             <div className="product__info__quantity__wrapper">
               <FontAwesomeIcon
                 className="product__info__quantity__btn"
                 icon={faCaretLeft}
                 onClick={() => {
-                  countQuantity > 1 && setcountQuantity(countQuantity - 1);
+                  colorActive !== "" && indexActive > 0 && countQuantity > 1 && setcountQuantity(countQuantity - 1);
                 }}
               />
-              <input className="product__info__quantity__input" name="quantity" type="number" value={countQuantity} onChange={handleChange} />
+              <input
+                className="product__info__quantity__input"
+                name="quantity"
+                type="number"
+                disabled={colorActive !== "" && indexActive > 0 ? false : true}
+                value={countQuantity}
+                onChange={handleChange}
+              />
               <FontAwesomeIcon className="product__info__quantity__btn" icon={faCaretRight} onClick={handleChangeQuantity} />
             </div>
             <div className="product__info__quantity__text">
@@ -182,7 +233,7 @@ const ProductInfo = (props) => {
             </div>
           </div>
         </div>
-        <div className="product__info__error" style={{display: isValidForm ? "none" : "block"}}>
+        <div className="product__info__error" style={{ display: isValidForm ? "none" : "block" }}>
           <span>Vui lòng chọn phân loại hàng</span>
         </div>
         <div className="product__info__btn-cart__wrapper">

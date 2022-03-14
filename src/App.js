@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useState } from "react";
+import React, { Suspense, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.scss";
 import CategoryStep from "./components/Content/CategoryStep/CategoryStep";
@@ -7,8 +7,8 @@ import Footer from "./components/Footer/Footer";
 import HeaderBot from "./components/Header/Bottom/HeaderBot";
 import HeaderTop from "./components/Header/Top/HeaderTop";
 import { HOME_PAGE } from "./constants/Pages";
-import { CATEGORY_URL } from "./constants/Routes";
 import AppProvider from "./contexts/AppProvider";
+import CartPage from "./pages/CartPage";
 import CategoryDetailPage from "./pages/CategoryDetailPage";
 import HomePage from "./pages/HomePage";
 import ProductDetailPage from "./pages/ProductDetailPage";
@@ -33,6 +33,7 @@ function App() {
             <Route path="/" element={<HomePage callbackFunc={changeCurrentPage} />} />
             <Route path={`/:slug`} element={<CategoryDetailPage callbackFunc={changeCurrentPage} />} />
             <Route path={`/:slug/:slug`} element={<ProductDetailPage callbackFunc={changeCurrentPage} />} />
+            <Route path={`/cart`} element={<CartPage callbackFunc={changeCurrentPage} />} />
           </Routes>
           <div className="footer">
             <Footer />
