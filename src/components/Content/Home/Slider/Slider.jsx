@@ -31,10 +31,10 @@ const Sliders = (props) => {
     <div className="slider__wrapper">
       <Slider {...settings}>
         <div className="slider__item">
-          <img className="slider__img" src="https://storage.googleapis.com/cdn.nhanh.vn/store/22767/bn/Screen_Shot_2021_12_08_at_7_42_37_PM.png" alt="" />
+          <img className="slider__img" src="https://laptop88.vn/media/banner/25_Jan76ffed430ea4f9c8551c0d0cb31bfd26.png" alt="" />
         </div>
         <div className="slider__item">
-          <img className="slider__img" src="https://storage.googleapis.com/cdn.nhanh.vn/store/22767/bn/Screen_Shot_2021_12_09_at_4_45_28_PM.png" alt="" />
+          <img className="slider__img" src="https://laptop88.vn/media/banner/25_Jancebc9a47d979cee621963ad4efef83a1.png" alt="" />
         </div>
       </Slider>
     </div>

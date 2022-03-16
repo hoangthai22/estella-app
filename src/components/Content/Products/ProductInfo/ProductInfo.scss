@@ -9,7 +9,7 @@
     font-family: "Quicksand", sans-serif;
     font-style: normal;
     font-weight: 700;
-    font-size: 1.9rem;
+    font-size: 1.7rem;
     line-height: 39px;
     color: #000;
   }
@@ -20,7 +20,7 @@
   }
   &__price,
   &__price__sale {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 700;
     font-family: "Quicksand", sans-serif;
     font-style: normal;
@@ -183,7 +183,7 @@
       }
     }
   }
-  &__error{
+  &__error {
     color: #ff424f;
     font-family: "Quicksand", sans-serif;
     margin-top: 30px;
@@ -198,4 +198,60 @@
 .sold-btn-color {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.product_info_CPU {
+  display: flex;
+}
+.shop_info_wrapper {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding-top: 15px;
+  border-top: 1px solid rgb(220, 220, 220);
+  &_img {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+  }
+}
+.shop_info_wrapper_bottom {
+  display: flex;
+  margin-top: 10px;
+  // padding-bottom: 15px;
+  // border-bottom: 1px solid  rgb(220, 220, 220) ;
+}
+.shop_info_wrapper_bottom_column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 33%;
+  border-right: 1px solid rgb(220, 220, 220);
+}
+.shop_info_wrapper_bottom_column:last-child {
+  border-right: none !important;
+}
+.product__info__btn-phone {
+  margin-top: 20px;
+  & > button {
+    width: 100%;
+    background-color: rgb(51, 168, 55);
+    height: 48px;
+    font-size: 1.1rem;
+    // min-width: 80px;
+    // max-width: 250px;
+    padding: 0 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "Quicksand", sans-serif;
+    text-align: center;
+    font-weight: 600;
+    color: #fff;
+    border: 1px solid rgb(51, 168, 55);
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
 }

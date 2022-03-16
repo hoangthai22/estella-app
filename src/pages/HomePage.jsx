@@ -21,7 +21,7 @@ function HomePage(props) {
       <div className="content">
         <Sliders />
         <ListCategory />
-        <HelpMeChoose />
+        {/* <HelpMeChoose /> */}
         <Policy />
         <HotProduct />
       </div>

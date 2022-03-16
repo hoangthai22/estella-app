@@ -14,15 +14,15 @@
 
   .policy__item {
     text-align: center;
-    width: 375px;
+    // width: 375px;
     cursor: default;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -o-user-select: none;
-    user-select: none;
-
+    // -webkit-user-select: none;
+    // -khtml-user-select: none;
+    // -moz-user-select: none;
+    // -ms-user-select: none;
+    // -o-user-select: none;
+    // user-select: none;
+    font-size: 60px;
     &__icon {
       transition: all 0.4s ease-in-out;
       &:hover {
@@ -47,7 +47,7 @@
       line-height: 17px;
       text-align: center;
       color: #000;
-      font-family: 'Quicksand', sans-serif;
+      font-family: "Quicksand", sans-serif;
     }
   }
 }

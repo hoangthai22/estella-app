@@ -17,11 +17,11 @@ const ProductList = () => {
   useEffect(() => {
     setIsLoading(true);
     const slug = location?.pathname?.slice(1).split("/")[0];
-    getListProductByCategory(slug, 1, 12).then((res) => {
+    getListProductByCategory(slug, 1, 9).then((res) => {
       setProducts(res.data);
       setcurentCountPage(1);
       if (res.data[0]) {
-        settotalPage(Math.ceil(res.data[0].count / 12));
+        settotalPage(Math.ceil(res.data[0].count / 9));
       }
       setIsLoading(false);
     });
@@ -47,10 +47,10 @@ const ProductList = () => {
     }
     const slug = location?.pathname?.slice(1).split("/")[0];
 
-    getListProductByCategory(slug, count, 12).then((res) => {
+    getListProductByCategory(slug, count, 9).then((res) => {
       setProducts(res.data);
       setcurentCountPage(count);
-      settotalPage(Math.ceil(res.data[0].count / 12));
+      settotalPage(Math.ceil(res.data[0].count / 9));
       setIsLoading(false);
     });
   };
@@ -77,7 +77,7 @@ const ProductList = () => {
           ) : (
             <button className="btn__empty"></button>
           )}
-          {[...Array(Math.ceil(products[0]?.count > 12 ? products[0]?.count / 12 : 0))].map((i, ind) => {
+          {[...Array(Math.ceil(products[0]?.count > 9 ? products[0]?.count / 9 : 0))].map((i, ind) => {
             return (
               <button key={ind} className={`productList__paging__btn ${curentCountPage === ind + 1 ? "active" : ""}`} onClick={() => handleChangePage(ind + 1)}>
                 <span>{ind + 1}</span>

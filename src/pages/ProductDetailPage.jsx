@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { useEffect } from "react/cjs/react.development";
 import { getProduct } from "../apis/apiCaller";
 import HelpMeChoose from "../components/Content/Home/HelpMeChoose/HelpMeChoose";
+import HotProduct from "../components/Content/Home/HotProduct/HotProduct";
 import ProductDetail from "../components/Content/Products/ProductDetail/ProductDetail";
 import ProductInfo from "../components/Content/Products/ProductInfo/ProductInfo";
 import { PRODUCT_DETAIL } from "../constants/Pages";
@@ -40,7 +41,8 @@ function ProductDetailPage(props) {
         <ProductDetail data={product} imgUrl={imgCurrent} />
         <ProductInfo data={product} callbackFunc={changeCurrentImg} />
       </div>
-      <HelpMeChoose />
+      {/* <HelpMeChoose /> */}
+      <HotProduct isDetaiPage={true}/>
     </div>
   );
 }

@@ -4,8 +4,9 @@ import { productList } from "../../../../constants/DataMock";
 import ProductItem from "../../Products/ProductItem/ProductItem";
 import "./HotProduct.scss";
 
+const HotProduct = (props) => {
+  const { isDetaiPage } = props;
 
-const HotProduct = () => {
   const [products, setProducts] = useState([]);
 
   const settings = {
@@ -29,11 +30,11 @@ const HotProduct = () => {
   return (
     <div className="hot__product__wrapper">
       <div className="hot__product__title">
-        <span className="hot__product__title__text">Sản phẩm HOT!</span>
+        <span className="hot__product__title__text">{isDetaiPage ? "Sản phẩm liên quan!" : "Sản phẩm phổ biến!"}</span>
       </div>
       <Slider {...settings}>
         {products.map((item) => {
-          return <ProductItem data={item} key={item.id} />;
+          return <ProductItem isDetaiPage={isDetaiPage} data={item} key={item.id} />;
         })}
       </Slider>
     </div>

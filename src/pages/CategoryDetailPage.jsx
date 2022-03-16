@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { useEffect } from "react/cjs/react.development";
+import HotProduct from "../components/Content/Home/HotProduct/HotProduct";
 import ListCategory from "../components/Content/Home/ListCategory/ListCategory";
 import CategoryNav from "../components/Content/Products/CategoryNav/CategoryNav";
 import ProductList from "../components/Content/Products/ProductList/ProductList";
@@ -20,6 +21,7 @@ function CategoryDetailPage(props) {
       <div className="category__detail__container">
         <CategoryNav />
         <ProductList />
+      
       </div>
       <ListCategory />
     </div>

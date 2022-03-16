@@ -1,3 +1,5 @@
+import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react/cjs/react.development";
@@ -32,11 +34,14 @@ const HeaderTop = (props) => {
           <IconSearch className="header__top__content__search__icon" />
         </div>
         <div className="header__top__content__cart" onClick={handeChageCartPage}>
-          <IconCart className="header__top__content__cart__icon" />
+        <FontAwesomeIcon icon={faCartPlus} style={{ marginRight: 5 }} /> 
+          {/* <IconCart className="header__top__content__cart__icon" /> */}
           <span>Giỏ hàng ({countCart})</span>
         </div>
       </div>
-      <div className="header__top__content__Logo">{/* <Logo className="logo"/> */}</div>
+      <div className="header__top__content__Logo">
+        <img src="https://mcdn.nhanh.vn/store/22767/logo_1638966470_logo%20chu%CC%9B%CC%83%20tra%CC%86%CC%81ng-04.png" className="logo" />
+      </div>
     </div>
   );
 };
