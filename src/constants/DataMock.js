@@ -473,20 +473,26 @@ totalSize: [],    size: [
 export const Categorys = [
   {
     id: "1",
-    categoryName: "Giày Sandal",
+    categoryName: "Váy",
     isActive: true,
-    slug: "giay-sandal",
+    slug: "Vay",
   },
   {
     id: "2",
-    categoryName: "Giày cao gót",
+    categoryName: "Cardigan",
     isActive: true,
-    slug: "giay-cao-got",
+    slug: "Cardigan",
   },
   {
     id: "3",
-    categoryName: "Giày Sneaker",
+    categoryName: "Croptop",
     isActive: true,
-    slug: "giay-sneaker",
+    slug: "Croptop",
+  },
+  {
+    id: "3",
+    categoryName: "Sweater",
+    isActive: true,
+    slug: "Sweater",
   },
 ];
