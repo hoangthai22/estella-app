@@ -77,6 +77,8 @@
 }
 .sub__menu__list {
   list-style: none;
+  display: flex;
+  flex-direction: column;
   position: absolute;
   display: none;
   background-color: #fff;
@@ -101,5 +103,5 @@
   }
 }
 .header__bot__item:hover .sub__menu__list {
-  display: block !important;
+  display: flex !important;
 }

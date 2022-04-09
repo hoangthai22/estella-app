@@ -21,7 +21,7 @@ const HeaderBot = (props) => {
             <ul className="sub__menu__list">
               {categoryList.map((item) => {
                 return (
-                  <li key={item.id} className="sub__menu__category" onClick={() => handleSubmitCategory(item._id, item.slug, item.categoryName)}>
+                  <li key={item._id} className="sub__menu__category" onClick={() => handleSubmitCategory(item._id, item.slug, item.categoryName)}>
                     {item.categoryName}
                   </li>
                 );
